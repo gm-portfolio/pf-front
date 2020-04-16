@@ -48,14 +48,14 @@ jobs:
       - name: Create a release
         if: github.event_name == 'push'
         id: release
-        run: npx semantic-release
+        uses: cycjimmy/semantic-release-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish image
-        if: github.event_name == 'push' && steps.release.outputs.releaseVersion != ''
+        if: github.event_name == 'push' && steps.release.outputs.new_release_published == 'true'
         env:
-          releaseVersion: ${{ steps.release.outputs.releaseVersion }}
+          releaseVersion: ${{ steps.release.outputs.new_release_version }}
         run: |
           docker tag $DOCKER_PROJECT_NAME/pf-front $DOCKER_PROJECT_NAME/pf-front:$releaseVersion
           docker push $DOCKER_PROJECT_NAME/pf-front:$releaseVersion
