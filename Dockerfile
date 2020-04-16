@@ -5,6 +5,6 @@ COPY . .
 RUN npm ci --ignore-scripts && npm run build
 
 # prod stage
-FROM nginx:1.17.9-alpine
+FROM gmportfolio/pf-static-server:latest
 WORKDIR /usr/share/nginx/html
 COPY --from=buildfront /app/dist .
