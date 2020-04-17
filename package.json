@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack --config webpack.dev.js",
     "build": " webpack --config webpack.prod.js",
     "lint": "eslint ./src --ext .js,.ts"
   },
@@ -14,11 +14,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
   },
   "repository": {
     "type": "git",
@@ -40,7 +35,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/config-angular": "^8.3.4",
     "@gfx/zopfli": "^1.0.14",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
