@@ -1,9 +1,9 @@
 branches: master
 plugins:
 - - '@semantic-release/commit-analyzer'
-  - preset: angular
+  - preset: conventionalcommits
 - - '@semantic-release/release-notes-generator'
-  - preset: angular
+  - preset: conventionalcommits
     presetConfig:
       types:
       - type: feat
