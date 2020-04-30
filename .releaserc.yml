@@ -3,7 +3,7 @@ plugins:
 - - '@semantic-release/commit-analyzer'
   - preset: angular
 - - '@semantic-release/release-notes-generator'
-  - preset: angular
+  - preset: conventionalcommits
     presetConfig:
       types:
       - type: feat

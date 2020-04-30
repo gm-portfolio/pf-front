@@ -48,7 +48,7 @@ jobs:
       - name: Create a release
         if: github.event_name == 'push'
         id: release
-        uses: cycjimmy/semantic-release-action@v2
+        uses: ridedott/release-me-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
