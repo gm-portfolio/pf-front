@@ -11,7 +11,7 @@
     "experimentalDecorators": true,
     "paths": {
       "design_system/*": [
-        "src/design_system/*",
+        "src/design-system/*"
       ]
     }
   },

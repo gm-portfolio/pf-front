@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -18,7 +19,7 @@ module.exports = {
     extensions: ['.ts', '.js', '.styl'],
     symlinks: false,
     alias: {
-      design_system: path.resolve(__dirname, './src/design_system/')
+      'design-system': path.resolve(__dirname, './src/design-system/')
     }
   },
   module: {
@@ -53,9 +54,9 @@ module.exports = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new ForkTsCheckerWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: './src/template.html' }),
+    new HtmlWebpackPlugin({ inject: 'body', template: './src/template.html' }),
     new ScriptExtHtmlWebpackPlugin({ defaultAttribute: 'defer' }),
     new MiniCssExtractPlugin({
       ignoreOrder: false
