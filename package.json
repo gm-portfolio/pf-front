@@ -31,7 +31,7 @@
   "homepage": "https://github.com/gm-portfolio/pf-front#readme",
   "dependencies": {
     "lit-html": "^1.2.1",
-    "rxjs": "^6.5.5"
+    "rxjs": "^6.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
