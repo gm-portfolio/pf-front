@@ -1,6 +1,7 @@
 name: CI/CD pipeline
 env:
   DOCKER_PROJECT_NAME: gmportfolio
+  DOCKER_REPO_NAME: pf-front
 on:
   pull_request:
     branches:
@@ -38,7 +39,7 @@ jobs:
 
       - name: Build image
         if: github.event_name == 'push'
-        run: docker build -t $DOCKER_PROJECT_NAME/pf-front .
+        run: docker build -t $DOCKER_PROJECT_NAME/$DOCKER_REPO_NAME .
 
       - name: Login registry
         if: github.event_name == 'push'
@@ -57,6 +58,6 @@ jobs:
         env:
           releaseVersion: ${{ steps.release.outputs.new-version }}
         run: |
-          docker tag $DOCKER_PROJECT_NAME/pf-front $DOCKER_PROJECT_NAME/pf-front:$releaseVersion
-          docker push $DOCKER_PROJECT_NAME/pf-front:$releaseVersion
-          docker push $DOCKER_PROJECT_NAME/pf-front:latest
+          docker tag $DOCKER_PROJECT_NAME/$DOCKER_REPO_NAME $DOCKER_PROJECT_NAME/$DOCKER_REPO_NAME:$releaseVersion
+          docker push $DOCKER_PROJECT_NAME/$DOCKER_REPO_NAME:$releaseVersion
+          docker push $DOCKER_PROJECT_NAME/$DOCKER_REPO_NAME:latest
